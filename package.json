@@ -24,6 +24,7 @@
   "homepage": "https://github.com/LonnyGomes/github-to-html#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
-    "@octokit/rest": "^17.0.0"
+    "@octokit/rest": "^17.0.0",
+    "flat-cache": "^2.0.1"
   }
 }
