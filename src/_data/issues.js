@@ -1,6 +1,7 @@
 const { Octokit } = require("@octokit/rest");
 const flatcache = require('flat-cache');
 const path = require("path");
+const moment = require('moment');
 
 const octokit = new Octokit();
 const owner = 'lonnygomes';
@@ -22,10 +23,12 @@ module.exports = async () => {
             owner,
             repo
         });
-
+        const dateFormat = 'ddd, DD MMM YYYY, HH:mm';
         const newData = await data.map((item) => {
             item.tags = item.labels.map(label => label.name);
             item.github_url = item.url;
+            item.created_at = moment(item.created_at).format(dateFormat);
+            item.updated_at = moment(item.updated_at).format(dateFormat);
             Reflect.deleteProperty(item, 'url');
 
             return item;
