@@ -4,3 +4,8 @@
     padding: 4px 6px;
     border-radius: 4px;
 }
+
+main {
+    width: 800px;
+    margin: 0 auto;
+}

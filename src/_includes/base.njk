@@ -10,6 +10,10 @@ title: Base site
     <title>{{ title }}</title>
   </head>
   <body>
-    {{ content | safe }}
+    {% include "header.njk" %}
+    <main>
+      {{ content | safe }}
+    </main>
+    {% include "footer.njk" %}
   </body>
 </html> 
