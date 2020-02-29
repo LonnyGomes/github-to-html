@@ -1,6 +1,6 @@
-const { Octokit } = require("@octokit/rest");
+const { Octokit } = require('@octokit/rest');
 const flatcache = require('flat-cache');
-const path = require("path");
+const path = require('path');
 const moment = require('moment');
 
 const octokit = new Octokit();
@@ -9,28 +9,28 @@ const repo = 'vjs-video';
 
 const getCacheKey = () => {
     const date = new Date();
-    return `${date.getUTCFullYear()}-${date.getUTCMonth() + 1}-${date.getUTCDate()}`;
-}
+    return `${date.getUTCFullYear()}-${date.getUTCMonth() +
+        1}-${date.getUTCDate()}`;
+};
 
 module.exports = async () => {
-    const cache = flatcache.load("github-issues", path.resolve("./_datacache"));
+    const cache = flatcache.load('github-issues', path.resolve('./_datacache'));
     const key = getCacheKey();
     let results = cache.getKey(key);
 
     if (!results) {
-
         const { data } = await octokit.issues.listForRepo({
             owner,
             repo
         });
         const dateFormat = 'ddd, DD MMM YYYY, HH:mm';
-        const newData = await data.map((item) => {
+        const newData = await data.map(item => {
             item.tags = item.labels.map(label => label.name);
             item.github_url = item.url;
             item.date = item.created_at;
             item.created_at = moment(item.created_at).format(dateFormat);
             item.updated_at = moment(item.updated_at).format(dateFormat);
-            item.permalink = `issue/${item.number}/index.html`;
+            item.permalink = `/issue/${item.number}/index.html`;
             Reflect.deleteProperty(item, 'url');
 
             return item;
@@ -42,4 +42,4 @@ module.exports = async () => {
     }
 
     return results;
-}
+};

@@ -2,13 +2,13 @@
 layout: base.njk
 title: Issues
 pagination:
-  data: issues
-  size: 1
-  alias: issue
-permalink: "issue/{{ issue.number }}/index.html"
+    data: issues
+    size: 1
+    alias: issue
+permalink: 'issue/{{ issue.number }}/index.html'
 ---
 
-## {{ issue.title }}
+# {{ issue.title }}
 
 [GitHub URL]({{ issue.html_url }})
 
@@ -16,6 +16,6 @@ permalink: "issue/{{ issue.number }}/index.html"
 
 {% for label in issue.labels %}
 
-- {{ label.name }}
+-   {{ label.name }}
 
 {% endfor %}

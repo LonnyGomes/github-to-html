@@ -1,18 +1,21 @@
+module.exports = function(eleventyConfig) {
+    eleventyConfig.addPassthroughCopy('src/css');
 
-
-module.exports = function (eleventyConfig) {
-    eleventyConfig.addPassthroughCopy("src/css");
-
-    eleventyConfig.addShortcode("ghLabels", (labels) => {
-        return labels.map(label => `<span style="background-color:#${label.color}" class="label">${label.name}</span>`);
-    });
+    eleventyConfig.addShortcode('ghLabels', labels =>
+        labels
+            .map(
+                label =>
+                    `<span style="background-color:#${label.color}" class="label">${label.name}</span>`
+            )
+            .join('\n')
+    );
 
     return {
         dir: {
-            input: 'src',
+            input: 'src'
         },
-        markdownTemplateEngine: "njk",
-        htmlTemplateEngine: "njk",
-        dataTemplateEngine: "njk"
-    }
-}
+        markdownTemplateEngine: 'njk',
+        htmlTemplateEngine: 'njk',
+        dataTemplateEngine: 'njk'
+    };
+};
