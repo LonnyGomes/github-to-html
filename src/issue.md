@@ -19,3 +19,11 @@ permalink: 'issue/{{ issue.number }}/index.html'
 -   {{ label.name }}
 
 {% endfor %}
+
+{% if pagination.previousPageHref %}
+[Previous]({{ pagination.previousPageHref | url }})
+{% endif %}
+
+{% if pagination.nextPageHref %}
+[Next]({{ pagination.nextPageHref | url }})
+{% endif %}
