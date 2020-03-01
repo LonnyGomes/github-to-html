@@ -1,12 +1,28 @@
 const { Octokit } = require('@octokit/rest');
-
+const path = require('path');
+const flatcache = require('flat-cache');
+const getCacheKey = () => {
+    const date = new Date();
+    return `${date.getUTCFullYear()}-${date.getUTCMonth() +
+        1}-${date.getUTCDate()}`;
+};
 class GitHubHelper {
     constructor() {
         this.octokit = new Octokit();
     }
 
     async getIssues(owner, repo) {
-        let results = [];
+        const cache = flatcache.load(
+            'github-issues',
+            path.resolve('./_datacache')
+        );
+        const key = getCacheKey();
+        let results = cache.getKey(key);
+
+        // if we can pull from the cache, return that value
+        if (results) {
+            return results;
+        }
 
         try {
             const { data } = await this.octokit.issues.listForRepo({
@@ -23,6 +39,9 @@ class GitHubHelper {
 
                 return item;
             });
+
+            cache.setKey(key, results);
+            cache.save();
         } catch (error) {
             console.error(`Error when calling getIssues: ${error.message}`);
         }
