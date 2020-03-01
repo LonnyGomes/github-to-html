@@ -1,3 +1,4 @@
+const util = require('util');
 const moment = require('moment');
 const config = require('./src/_data/config')();
 const GitHubHelper = require('./src/utils/github');
@@ -18,6 +19,7 @@ module.exports = function(eleventyConfig) {
     );
 
     eleventyConfig.addShortcode('ghLabel', processLabel);
+    eleventyConfig.addFilter('debug', data => util.inspect(data));
 
     eleventyConfig.addFilter('simpleDate', dateStr => {
         const dateFormat = 'DD MMM YYYY';
