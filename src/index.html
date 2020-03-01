@@ -14,7 +14,6 @@ pagination:
 <tr>
     <th>Title</th>
     <th>Created</th>
-    <th>Last Updated</th>
     <th>Label</th>
 </tr>
 </thead>
@@ -24,7 +23,6 @@ pagination:
 {%- for issue in pagination.items %}
 <tr>
     <td><a href="{{ issue.permalink | url }}">{{ issue.title }}</a></td>
-    <td class="table-date">{{ issue.date | simpleDate }}</td>
     <td class="table-date">{{ issue.date | simpleDate }}</td>
     <td> {% ghLabels issue.labels %}</td></li>
 </tr>
