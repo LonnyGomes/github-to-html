@@ -11,6 +11,7 @@ permalink: "label/{{ label| slug }}/index.html"
 
 <ol>
 {%- for item in labels[label] %}
-  <li><a href="/label/{{label}}/{{item.number}}/index.html">{{ item.title}}</a></li>
+  {% set curUrl = "/label/" + label + "/" + item.number + "/index.html" | url %}
+  <li><a href="{{ curUrl }}">{{ item.title}}</a></li>
 {% endfor -%}
 </ol>
