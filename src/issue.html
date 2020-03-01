@@ -1,0 +1,16 @@
+---
+layout: base.njk
+pagination:
+    data: labels
+    size: 1
+    alias: label
+permalink: "label/{{ label| slug }}/index.html"
+---
+
+<h2>Issues for {{ label }} label</h2>
+
+<ol>
+{%- for item in labels[label] %}
+  <li><a href="/label/{{label}}/{{item.number}}/index.html">{{ item.title}}</a></li>
+{% endfor -%}
+</ol>
