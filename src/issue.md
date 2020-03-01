@@ -25,8 +25,10 @@ permalink: 'issue/{{ issue.number }}/index.html'
 
 {{ issue.body | safe }}
 
+### Labels
+
 {% for label in issue.labels %}
 
--   {{ label.name }}
+-   {% ghLabel label  %}
 
 {% endfor %}
