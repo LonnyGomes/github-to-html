@@ -73,6 +73,29 @@ class GitHubHelper {
 
         return labelResults;
     }
+
+    async getFlattenedIssuesByLabel(owner, repo) {
+        let issues = [];
+        try {
+            const issuesObj = await this.getIssuesByLabel(owner, repo);
+
+            console.log('before', Object.keys(issuesObj));
+            // merge arrays across the various data while adding a label tag
+            Object.keys(issuesObj).forEach(
+                label =>
+                    (issues = [
+                        ...issues,
+                        ...issuesObj[label].map(issue => ({ ...issue, label }))
+                    ])
+            );
+        } catch (error) {
+            console.error(
+                `Error when calling getFlattenedIssuesByLabel: ${error.message}`
+            );
+        }
+
+        return issues;
+    }
 }
 
 module.exports = GitHubHelper;
