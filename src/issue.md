@@ -7,3 +7,5 @@ pagination:
     alias: issue
 permalink: 'issue/{{ issue.number }}/index.html'
 ---
+
+{{ issue.body | safe }}

@@ -18,7 +18,7 @@ title: Issues
 
 <a href="{{ issue.html_url }}">GitHub URL</a>
 
-{{ issue.body | safe }}
+{{ content | safe }}
 
 
 {%  set labelsLen = issue.labels | length %}
