@@ -1,11 +1,12 @@
+const config = require('./config')();
 const { Octokit } = require('@octokit/rest');
 const flatcache = require('flat-cache');
 const path = require('path');
 const moment = require('moment');
 
 const octokit = new Octokit();
-const owner = 'lonnygomes';
-const repo = 'vjs-video';
+const owner = config.githubUser;
+const repo = config.githubRepo;
 
 const getCacheKey = () => {
     const date = new Date();
