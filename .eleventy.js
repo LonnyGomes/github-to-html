@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy('src/css');
 
@@ -9,6 +11,16 @@ module.exports = function(eleventyConfig) {
             )
             .join('\n')
     );
+
+    eleventyConfig.addFilter('simpleDate', dateStr => {
+        const dateFormat = 'DD MMM YYYY';
+        return moment(dateStr).format(dateFormat);
+    });
+
+    eleventyConfig.addFilter('detailedDate', dateStr => {
+        const dateFormat = 'ddd, DD MMM YYYY, HH:mm';
+        return moment(dateStr).format(dateFormat);
+    });
 
     return {
         dir: {

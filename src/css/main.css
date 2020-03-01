@@ -27,7 +27,13 @@ table th {
 table td {
     font-weight: 300;
     font-size: 1.1rem;
+    padding: 5px 10px;
 }
+
+.table-date {
+    white-space: nowrap;
+}
+
 a {
     color: var(--primary-clr);
     text-decoration: none;

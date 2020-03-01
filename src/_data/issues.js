@@ -2,7 +2,6 @@ const config = require('./config')();
 const { Octokit } = require('@octokit/rest');
 const flatcache = require('flat-cache');
 const path = require('path');
-const moment = require('moment');
 
 const octokit = new Octokit();
 const owner = config.githubUser;
@@ -29,8 +28,6 @@ module.exports = async () => {
             item.tags = item.labels.map(label => label.name);
             item.github_url = item.url;
             item.date = item.created_at;
-            item.created_at = moment(item.created_at).format(dateFormat);
-            item.updated_at = moment(item.updated_at).format(dateFormat);
             item.permalink = `/issue/${item.number}/index.html`;
             Reflect.deleteProperty(item, 'url');
 
