@@ -1,9 +1,16 @@
 const moment = require('moment');
+const config = require('./src/_data/config')();
+const GitHubHelper = require('./src/utils/github');
+
+const owner = config.githubUser;
+const repo = config.githubRepo;
 
 const processLabel = label =>
     `<span style="background-color:#${label.color}" class="label">${label.name}</span>`;
 
 module.exports = function(eleventyConfig) {
+    const github = new GitHubHelper();
+
     eleventyConfig.addPassthroughCopy('src/css');
 
     eleventyConfig.addShortcode('ghLabels', labels =>
@@ -22,9 +29,10 @@ module.exports = function(eleventyConfig) {
         return moment(dateStr).format(dateFormat);
     });
 
-    eleventyConfig.addCollection('allMyContent', function(collection) {
-        console.log(collection);
-        return collection.getAll();
+    eleventyConfig.addCollection('issuesByLabel', async collection => {
+        const issues = await github.getFlattenedIssuesByLabel(owner, repo);
+
+        return issues;
     });
 
     return {
