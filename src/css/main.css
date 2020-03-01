@@ -3,6 +3,7 @@
     --accent-clr: #eb5286;
     --tertiary-clr: #edf2f7;
     --header-txt-clr: white;
+    --secondary-font-clr: #718096;
 
     --primary-font: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
         Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
@@ -17,6 +18,16 @@ body {
     margin: 0px;
 }
 
+table th {
+    color: var(--secondary-font-clr);
+    font-weight: 300;
+    font-size: 1.3rem;
+}
+
+table td {
+    font-weight: 300;
+    font-size: 1.1rem;
+}
 a {
     color: var(--primary-clr);
     text-decoration: none;
