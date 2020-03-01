@@ -29,6 +29,31 @@ class GitHubHelper {
 
         return results;
     }
+
+    async getIssuesByLabel(owner, repo) {
+        let labelResults = {};
+        try {
+            const issues = await this.getIssues(owner, repo);
+
+            // loop through each issue to build out labels object
+            for (const issue of issues) {
+                if (issue.labels && Array.isArray(issue.labels)) {
+                    issue.labels.forEach(label => {
+                        if (!labelResults[label.name]) {
+                            labelResults[label.name] = [];
+                        }
+                        labelResults[label.name].push(issue);
+                    });
+                }
+            }
+        } catch (error) {
+            console.error(
+                `Error when calling getIssuesByLabel: ${error.message}`
+            );
+        }
+
+        return labelResults;
+    }
 }
 
 module.exports = GitHubHelper;

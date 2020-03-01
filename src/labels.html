@@ -1,0 +1,12 @@
+---
+layout: base.njk
+title: Labels
+---
+
+<h1>Labels</h1> 
+
+<ol>
+{%- for key, val in labels %}
+  <li>{{ key }} ({{ val | length }})</li>
+{% endfor -%}
+</ol>
