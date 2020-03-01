@@ -27,6 +27,7 @@ a {
 a.active {
     color: var(--accent-clr);
     border-color: var(--primary-clr);
+    border-bottom-style: none;
 }
 
 a:hover {
@@ -64,6 +65,23 @@ main {
     margin: 0 auto;
 }
 
+.main-pagination {
+    display: flex;
+    font-weight: 700;
+    justify-content: center;
+}
+
+.main-pagination li {
+    margin: 5px 15px;
+    list-style: none;
+}
+
+.issues-pagination {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
 .site-header {
     display: flex;
     width: 100%;
@@ -90,4 +108,26 @@ main {
 
 .text-2xl {
     font-size: 1.5rem;
+}
+
+.nav-item {
+    font-weight: 700;
+    font-size: 1.5em;
+    border-bottom: none;
+}
+
+.nav-arrow {
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 40px;
+    vertical-align: sub;
+    color: var(--accent-clr);
+}
+
+.next-nav-arrow {
+    align-self: flex-end;
+}
+
+.prev-nav-arrow {
+    align-self: flex-start;
 }
