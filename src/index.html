@@ -36,7 +36,7 @@ pagination:
   <h2 id="pagination-label">Pagination</h2>
   <ol>
 {%- for pageEntry in pagination.pages %}
-    <li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>Page {{ loop.index }}</a></li>
+    <li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page" class="active" {% endif %}>Page {{ loop.index }}</a></li>
 {%- endfor %}
   </ol>
 </nav>
