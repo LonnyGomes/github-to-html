@@ -79,7 +79,6 @@ class GitHubHelper {
         try {
             const issuesObj = await this.getIssuesByLabel(owner, repo);
 
-            console.log('before', Object.keys(issuesObj));
             // merge arrays across the various data while adding a label tag
             Object.keys(issuesObj).forEach(
                 label =>
