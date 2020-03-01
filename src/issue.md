@@ -1,5 +1,5 @@
 ---
-layout: base.njk
+layout: issue.njk
 title: Issues
 pagination:
     data: issues
@@ -7,28 +7,3 @@ pagination:
     alias: issue
 permalink: 'issue/{{ issue.number }}/index.html'
 ---
-
-<div class="issues-pagination">
-{% if pagination.previousPageHref %}
-<a class="nav-item prev-nav-arrow" href="{{ pagination.previousPageHref | url }}"> <span class="nav-arrow"><</span> Prev</a>
-{% endif %}
-
-{% if pagination.nextPageHref %}
-<a class="nav-item next-nav-arrow" href="{{ pagination.nextPageHref | url }}" > Next <span class="nav-arrow">></span></a>
-{% endif %}
-
-</div>
-
-# {{ issue.title }}
-
-[GitHub URL]({{ issue.html_url }})
-
-{{ issue.body | safe }}
-
-### Labels
-
-{% for label in issue.labels %}
-
--   {% ghLabel label  %}
-
-{% endfor %}

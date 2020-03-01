@@ -1,0 +1,35 @@
+---
+layout: base.njk
+title: Issues
+---
+
+<div class="issues-pagination">
+{% if pagination.previousPageHref %}
+<a class="nav-item prev-nav-arrow" href="{{ pagination.previousPageHref | url }}"> <span class="nav-arrow"><</span> Prev</a>
+{% endif %}
+
+{% if pagination.nextPageHref %}
+<a class="nav-item next-nav-arrow" href="{{ pagination.nextPageHref | url }}" > Next <span class="nav-arrow">></span></a>
+{% endif %}
+
+</div>
+
+<h1>{{ issue.title }}</h1>
+
+<a href="{{ issue.html_url }}">GitHub URL</a>
+
+{{ issue.body | safe }}
+
+
+{%  set labelsLen = issue.labels | length %}
+{%  if labelsLen %}
+<h3>Labels</h3>
+
+<ul>
+{% for label in issue.labels %}
+
+    <li>{% ghLabel label  %}</li>
+
+{% endfor %}
+</ul>
+{% endif %}
