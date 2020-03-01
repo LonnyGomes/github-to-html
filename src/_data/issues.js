@@ -1,9 +1,9 @@
 const config = require('./config')();
-const { Octokit } = require('@octokit/rest');
+const GitHubHelper = require('../utils/github');
 const flatcache = require('flat-cache');
 const path = require('path');
 
-const octokit = new Octokit();
+const github = new GitHubHelper();
 const owner = config.githubUser;
 const repo = config.githubRepo;
 
@@ -19,20 +19,7 @@ module.exports = async () => {
     let results = cache.getKey(key);
 
     if (!results) {
-        const { data } = await octokit.issues.listForRepo({
-            owner,
-            repo
-        });
-        const dateFormat = 'ddd, DD MMM YYYY, HH:mm';
-        const newData = await data.map(item => {
-            item.tags = item.labels.map(label => label.name);
-            item.github_url = item.url;
-            item.date = item.created_at;
-            item.permalink = `/issue/${item.number}/index.html`;
-            Reflect.deleteProperty(item, 'url');
-
-            return item;
-        });
+        const newData = await github.getIssues(owner, repo);
 
         cache.setKey(key, newData);
         cache.save();
