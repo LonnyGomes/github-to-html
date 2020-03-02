@@ -11,14 +11,15 @@ module.exports = function(eleventyConfig) {
     // retrieve nunjucks slug filter
     const slug = eleventyConfig.nunjucksFilters.slug;
     // retrieve nunjucks url filter
-    const url = eleventyConfig.nunjucksFilters.url;
+    const url = urlStr =>
+        eleventyConfig.nunjucksFilters.url(urlStr, config.pathPrefix);
 
     const processLabel = label =>
         `<span style="background-color:#${
             label.color
-        }" class="label"><a class="label-link" href="/label/${url(
-            slug(label.name)
-        )}/"/>${label.name}</a></span>`;
+        }" class="label"><a class="label-link" href="${url(
+            '/label/' + slug(label.name) + '/'
+        )}"/>${label.name}</a></span>`;
 
     eleventyConfig.addPassthroughCopy('src/css');
 
