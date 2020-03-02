@@ -10,12 +10,14 @@ module.exports = function(eleventyConfig) {
     const github = new GitHubHelper(config.octokitOptions);
     // retrieve nunjucks slug filter
     const slug = eleventyConfig.nunjucksFilters.slug;
+    // retrieve nunjucks url filter
+    const url = eleventyConfig.nunjucksFilters.url;
 
     const processLabel = label =>
         `<span style="background-color:#${
             label.color
-        }" class="label"><a class="label-link" href="/label/${slug(
-            label.name
+        }" class="label"><a class="label-link" href="/label/${url(
+            slug(label.name)
         )}/"/>${label.name}</a></span>`;
 
     eleventyConfig.addPassthroughCopy('src/css');
