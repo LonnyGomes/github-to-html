@@ -25,10 +25,12 @@ class GitHubHelper {
         }
 
         try {
-            const { data } = await this.octokit.issues.listForRepo({
+            const options = this.octokit.issues.listForRepo.endpoint.merge({
                 owner,
                 repo
             });
+
+            const data = await this.octokit.paginate(options);
 
             results = data.map(item => {
                 item.tags = item.labels.map(label => label.name);
