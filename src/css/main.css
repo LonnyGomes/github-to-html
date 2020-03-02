@@ -58,6 +58,10 @@ a:hover {
     border-radius: 4px;
 }
 
+.label-link {
+    border-bottom-style: none;
+}
+
 .base-container {
     display: flex;
     flex-direction: column;

@@ -1,5 +1,6 @@
 const util = require('util');
 const moment = require('moment');
+const slugify = require('slugify');
 const config = require('./src/_data/config')();
 const GitHubHelper = require('./src/utils/github');
 
@@ -7,7 +8,11 @@ const owner = config.githubUser;
 const repo = config.githubRepo;
 
 const processLabel = label =>
-    `<span style="background-color:#${label.color}" class="label">${label.name}</span>`;
+    `<span style="background-color:#${
+        label.color
+    }" class="label"><a class="label-link" href="/label/${slugify(
+        label.name
+    )}/"/>${label.name}</a></span>`;
 
 module.exports = function(eleventyConfig) {
     const github = new GitHubHelper(config.octokitOptions);
