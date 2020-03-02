@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/main.css" />
+        <title>Issues</title>
+    </head>
+    <body>
+        <div class="base-container">
+            <div class="header-container">
+                <header class="site-header">
+<a class="text-2xl" href="/">vjs-video</a> <div class="header-links"> <a href="/labels/">Labels</a></div>
+</header>
+            </div>
+            <div class="main-container">
+                <main>
+                    
+<div class="issues-pagination">
+
+<a class="nav-item prev-nav-arrow" href="/issue/72/"> <span class="nav-arrow"><</span> Prev</a>
+
+
+
+<a class="nav-item next-nav-arrow" href="/issue/68/" > Next <span class="nav-arrow">></span></a>
+
+
+</div>
+
+<h1>registering plugins</h1>
+
+<a href="https://github.com/LonnyGomes/vjs-video/issues/70">GitHub URL</a>
+
+<h1>Registering Plugins</h1>
+<p>I added <code>vjs-video</code> in my angular app, and it has worked great thus far. Now I'm trying to add a couple of plugins, and I can't seem to get them to work.</p>
+<h2>Problem</h2>
+<p>I've tried registering the plugins by specifying options using the <code>vjs-setup</code> directive, and specifying these in my controller:</p>
+<p><strong>HTML:</strong></p>
+<pre><code class="language-javascript">&lt;video vjs-ratio=&quot;14:9&quot; vjs-setup=&quot;$ctrl.vidopts&quot; class=&quot;video-js vjs-big-play-centered&quot; ng-src=&quot;{{$ctrl.urls.movie}}&quot; controls vjs-video&gt;
+&lt;/video&gt;
+</code></pre>
+<p><strong>Component's Controller:</strong></p>
+<pre><code class="language-javascript">// video.js options
+this.vidopts = {
+     &quot;playbackRates&quot;: [ 0.25, 0.5, 1, 1.5, 2],
+      &quot;hotkeys&quot;: {seekStep: 5},
+       plugins: {
+           videoJsResolutionSwitcher: {
+                    default: 'low',
+                    dynamicLabel: true
+          }
+     }
+}
+</code></pre>
+<blockquote>
+<p>I tried registering the plugins using both formats, but neither seem to work.</p>
+</blockquote>
+<p>The <code>playbackRates</code> parameter works as expected, but none of the plugins seem to take effect...</p>
+<p>Is there a convenient workaround for this with <code>vjs-video</code>?</p>
+<h3>Plugins</h3>
+<p>I've been attempting this with the following plugins:
+<a href="https://www.npmjs.com/package/videojs-resolution-switcher">videojs-resolution-switcher</a>
+<a href="https://www.npmjs.com/package/videojs-hotkeys">videojs-hotkeys</a></p>
+<p>A look at these plugins suggests they self-register with videojs at the end of their scripts:</p>
+<pre><code class="language-javascript">console.log('registering hotkeys plugin'); // I added this line, and the console says it is called...
+videojs.plugin('hotkeys', hotkeys);
+</code></pre>
+
+
+
+
+
+                </main>
+            </div>
+            <div class="footer-container">
+                <footer class="site-footer">
+<p>footer content</p>
+</footer>
+            </div>
+        </div>
+    </body>
+</html>

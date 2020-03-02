@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/main.css" />
+        <title>Issues</title>
+    </head>
+    <body>
+        <div class="base-container">
+            <div class="header-container">
+                <header class="site-header">
+<a class="text-2xl" href="/">vjs-video</a> <div class="header-links"> <a href="/labels/">Labels</a></div>
+</header>
+            </div>
+            <div class="main-container">
+                <main>
+                    
+<div class="issues-pagination">
+
+<a class="nav-item prev-nav-arrow" href="/issue/66/"> <span class="nav-arrow"><</span> Prev</a>
+
+
+
+<a class="nav-item next-nav-arrow" href="/issue/50/" > Next <span class="nav-arrow">></span></a>
+
+
+</div>
+
+<h1>change video and end callback inside angular controller</h1>
+
+<a href="https://github.com/LonnyGomes/vjs-video/issues/62">GitHub URL</a>
+
+<p>Please advice how to implement this functionalities.
+this is my start initialization - working fine
+<code>$scope.media_setup = { sources: [ { src: &quot;https://d24uab5gycr2uz.cloudfront.net/stockmarketexperts-output/output/lecture-3-video-3-factors-of-fundamental-analysis-sd.m3u8&quot;, type: &quot;application/x-mpegURL&quot;, } ] };</code></p>
+<p>then</p>
+<p><code>$scope.changeVideo = function(){ $scope.playInstance.media_setup = { sources: [ { src: &quot;https://d24uab5gycr2uz.cloudfront.net/stockmarketexperts-output/output/lecture-3-video-3-factors-of-fundamental-analysis-sd.m3u8&quot;, type: &quot;application/x-mpegURL&quot;, } ] }; };</code></p>
+<p><code>$scope.$on('vjsVideoReady',function(e,data){ $scope.playInstance = data.player; });</code>
+this is not working</p>
+<p>tried also
+$scope.$on('$destroy',function(){
+$scope.playInstance.dispose();
+});</p>
+<p>still no luck</p>
+<p>display file</p>
+<pre><code>&lt;video id=&quot;my_video_1&quot;  class=&quot;video-js vjs-default-skin&quot; controls preload=&quot;auto&quot; width=&quot;640&quot; height=&quot;268&quot; vjs-media=&quot;media_setup&quot; vjs-video vjs-setup='{ &quot;playbackRates&quot;: [0.5, 1, 1.5, 2] }'&gt;
+        
+    &lt;/video&gt;
+
+    &lt;button ng-click=&quot;changeVideo()&quot;&gt;Change&lt;/button&gt;
+</code></pre>
+
+
+
+
+
+                </main>
+            </div>
+            <div class="footer-container">
+                <footer class="site-footer">
+<p>footer content</p>
+</footer>
+            </div>
+        </div>
+    </body>
+</html>

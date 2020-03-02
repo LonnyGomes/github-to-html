@@ -1,0 +1,154 @@
+:root {
+    --primary-clr: #21183c;
+    --accent-clr: #eb5286;
+    --tertiary-clr: #edf2f7;
+    --header-txt-clr: white;
+    --secondary-font-clr: #718096;
+
+    --primary-font: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+        Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
+        Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
+html {
+    font-family: var(--primary-font);
+}
+
+body {
+    margin: 0px;
+}
+
+table th {
+    color: var(--secondary-font-clr);
+    font-weight: 300;
+    font-size: 1.3rem;
+}
+
+table td {
+    font-weight: 300;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+}
+
+.table-date {
+    white-space: nowrap;
+}
+
+a {
+    color: var(--primary-clr);
+    text-decoration: none;
+    border-bottom-width: 2px;
+    border-color: var(--accent-clr);
+    border-bottom-style: solid;
+}
+a.active {
+    color: var(--accent-clr);
+    border-color: var(--primary-clr);
+    border-bottom-style: none;
+}
+
+a:hover {
+    color: var(--accent-clr);
+}
+
+.label {
+    display: inline-block;
+    background-color: #ccc;
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+
+.label-link {
+    border-bottom-style: none;
+}
+
+.base-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+.header-container {
+    background-color: var(--primary-clr);
+}
+
+.main-container {
+    flex-basis: 100%;
+}
+
+.footer-container {
+    background-color: var(--tertiary-clr);
+}
+
+main {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.main-pagination {
+    display: flex;
+    font-weight: 700;
+    justify-content: center;
+}
+
+.main-pagination li {
+    margin: 5px 15px;
+    list-style: none;
+}
+
+.issues-pagination {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    margin: 0px;
+    padding: 10px 20px;
+    align-items: center;
+    font-weight: 700;
+}
+
+.site-header a {
+    color: var(--header-txt-clr);
+    text-decoration: none;
+    border: none;
+}
+
+.site-footer {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    margin: 0px;
+    padding: 10px 20px;
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+}
+
+.nav-item {
+    font-weight: 700;
+    font-size: 1.5em;
+    border-bottom: none;
+}
+
+.nav-arrow {
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 40px;
+    vertical-align: sub;
+    color: var(--accent-clr);
+}
+
+.next-nav-arrow {
+    align-self: flex-end;
+}
+
+.prev-nav-arrow {
+    align-self: flex-start;
+}

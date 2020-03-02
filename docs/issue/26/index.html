@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/main.css" />
+        <title>Issues</title>
+    </head>
+    <body>
+        <div class="base-container">
+            <div class="header-container">
+                <header class="site-header">
+<a class="text-2xl" href="/">vjs-video</a> <div class="header-links"> <a href="/labels/">Labels</a></div>
+</header>
+            </div>
+            <div class="main-container">
+                <main>
+                    
+<div class="issues-pagination">
+
+<a class="nav-item prev-nav-arrow" href="/issue/30/"> <span class="nav-arrow"><</span> Prev</a>
+
+
+
+<a class="nav-item next-nav-arrow" href="/issue/21/" > Next <span class="nav-arrow">></span></a>
+
+
+</div>
+
+<h1>How to use the &quot;Player&quot; API?</h1>
+
+<a href="https://github.com/LonnyGomes/vjs-video/issues/26">GitHub URL</a>
+
+<p>Hi, first of all, thanks for this directive :)</p>
+<p>I've been a while playing around with this, but I definitely don't know how to do it. I need to access the methods of the Player API : http://docs.videojs.com/docs/api/player.html, so I can manually control the position of the video, get the video currentTime, etc.</p>
+<p>My last try was something like this:</p>
+<pre><code class="language-javascript">scope.$on('vjsVideoReady', function(evt, videoData) {
+    scope.videoPlayer = window.videojs.Player(videoData.vid.tag);           
+});
+</code></pre>
+<p>But I am getting the following error:</p>
+<pre><code>TypeError: this.getTagSettings is not a function
+    at Function.vjs.Player.vjs.Component.extend.init (video.min.js:1)
+    at Function.a [as Player] (video.min.js:1)
+    at videoLibrary.js:3241
+    at Scope.$emit (angular.js:12934)
+    at null.&lt;anonymous&gt; (vjs.directive.js:236)
+    at vjs.Component.ready (video.min.js:1)
+    at vjs.Component.vjs.CoreObject.extend.init (video.min.js:1)
+    at a [as constructor] (video.min.js:1)
+    at vjs.Player.vjs.Component.extend.init (video.min.js:1)
+    at new a (video.min.js:1)
+</code></pre>
+<p>The video.js version seems to be 4.2, according to <code>window.videojs.CDN_VERSION</code> (I entered to an ongoing project in my company, so the videojs library was already there, that's what I am looking at that CDN_VERSION property).</p>
+<p>Any clues about how to achieve what I want?</p>
+
+
+
+
+
+                </main>
+            </div>
+            <div class="footer-container">
+                <footer class="site-footer">
+<p>footer content</p>
+</footer>
+            </div>
+        </div>
+    </body>
+</html>
