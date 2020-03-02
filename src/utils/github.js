@@ -7,8 +7,8 @@ const getCacheKey = () => {
         1}-${date.getUTCDate()}`;
 };
 class GitHubHelper {
-    constructor() {
-        this.octokit = new Octokit();
+    constructor(options = {}) {
+        this.octokit = new Octokit(options);
     }
 
     async getIssues(owner, repo) {

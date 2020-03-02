@@ -10,7 +10,7 @@ const processLabel = label =>
     `<span style="background-color:#${label.color}" class="label">${label.name}</span>`;
 
 module.exports = function(eleventyConfig) {
-    const github = new GitHubHelper();
+    const github = new GitHubHelper(config.octokitOptions);
 
     eleventyConfig.addPassthroughCopy('src/css');
 
