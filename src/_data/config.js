@@ -6,7 +6,8 @@ module.exports = () => {
         homepageTitle: 'GitHub Issues',
         githubUser: 'lonnygomes',
         githubRepo: 'vjs-video',
-        octokitOptions: {}
+        octokitOptions: {},
+        pathPrefix: undefined
     };
     let config = configDefaults;
 
