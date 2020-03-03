@@ -18,7 +18,9 @@ title: Issues
 
 <a href="{{ issue.html_url }}">GitHub URL</a>
 
-{{ content | safe }}
+<div class="markdown-content">
+    {{ content | safe }}
+</div>
 
 
 {%  set labelsLen = issue.labels | length %}
