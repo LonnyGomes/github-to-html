@@ -152,3 +152,11 @@ main {
 .prev-nav-arrow {
     align-self: flex-start;
 }
+
+.item-list {
+    font-size: 1.5rem;
+}
+
+.item-list li {
+    padding: 7px;
+}

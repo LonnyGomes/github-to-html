@@ -5,7 +5,7 @@ title: Labels
 
 <h1>Labels</h1> 
 
-<ol>
+<ol class="item-list">
 {%- for label, val in labels %}
    {% set curUrl = "/label/" + label | slug + "/index.html" %}
   <li><a href="{{ curUrl | url }}">{{ label }} ({{ val | length }})</a></li>
