@@ -161,3 +161,7 @@ main {
 .item-list li {
     padding: 7px;
 }
+
+.markdown-content {
+    font-size: 1.3rem;
+}
