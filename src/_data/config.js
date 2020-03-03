@@ -3,9 +3,9 @@ const path = require('path');
 
 module.exports = () => {
     let configDefaults = {
-        homepageTitle: 'GitHub Issues',
+        homepageTitle: 'GitHub to HTML',
         githubUser: 'lonnygomes',
-        githubRepo: 'vjs-video',
+        githubRepo: 'github-to-html',
         octokitOptions: {},
         pathPrefix: undefined
     };
