@@ -28,6 +28,7 @@ table td {
     font-weight: 300;
     font-size: 1.4rem;
     padding: 5px 10px;
+    vertical-align: top;
 }
 
 .table-date {
@@ -83,7 +84,7 @@ a:hover {
 }
 
 main {
-    width: 800px;
+    max-width: 1024px;
     margin: 0 auto;
 }
 
