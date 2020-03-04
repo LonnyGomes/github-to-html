@@ -20,14 +20,15 @@ body {
 
 table th {
     color: var(--secondary-font-clr);
-    font-weight: 300;
+    font-weight: 700;
     font-size: 1.3rem;
 }
 
 table td {
     font-weight: 300;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     padding: 5px 10px;
+    vertical-align: top;
 }
 
 .table-date {
@@ -56,6 +57,7 @@ a:hover {
     background-color: #ccc;
     padding: 4px 6px;
     border-radius: 4px;
+    margin: 5px;
 }
 
 .label-link {
@@ -82,7 +84,7 @@ a:hover {
 }
 
 main {
-    width: 800px;
+    max-width: 1024px;
     margin: 0 auto;
 }
 
@@ -151,4 +153,16 @@ main {
 
 .prev-nav-arrow {
     align-self: flex-start;
+}
+
+.item-list {
+    font-size: 1.5rem;
+}
+
+.item-list li {
+    padding: 7px;
+}
+
+.markdown-content {
+    font-size: 1.3rem;
 }

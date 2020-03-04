@@ -7,9 +7,9 @@ pagination:
 permalink: "label/{{ label| slug }}/index.html"
 ---
 
-<h2>Issues for {{ label }} label</h2>
+<h1>Issues for {{ label }} label</h1>
 
-<ol>
+<ol class="item-list">
 {%- for item in labels[label] %}
   {% set curUrl = "/label/" + label | slug + "/" + item.number + "/index.html" %}
   <li><a href="{{ curUrl | url }}">{{ item.title}}</a></li>
