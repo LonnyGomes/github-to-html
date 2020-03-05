@@ -11,7 +11,7 @@ class GitHubHelper {
         this.octokit = new Octokit(options);
     }
 
-    async getIssues(owner, repo) {
+    async getAllIssues(owner, repo) {
         const cache = flatcache.load(
             'github-issues',
             path.resolve('./_datacache')
@@ -45,10 +45,22 @@ class GitHubHelper {
             cache.setKey(key, results);
             cache.save();
         } catch (error) {
-            console.error(`Error when calling getIssues: ${error.message}`);
+            console.error(`Error when calling getAllIssues: ${error.message}`);
         }
 
         return results;
+    }
+
+    async getIssues(owner, repo) {
+        let results = [];
+        try {
+            results = await this.getAllIssues(owner, repo);
+        } catch (error) {
+            console.error(`Error when calling getIssues: ${error.message}`);
+        }
+
+        // retrieve all issues that do NOT have a `pull_request` key
+        return results.filter(issue => !issue.pull_request);
     }
 
     async getIssuesByLabel(owner, repo) {
