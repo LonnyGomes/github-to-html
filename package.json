@@ -4,7 +4,8 @@
   "description": "pulls GitHub repo info and generates a static site using eleventy",
   "main": "src/index.md",
   "scripts": {
-    "start": "eleventy --serve --input=src",
+    "start": "eleventy --serve",
+    "dist": "eleventy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
