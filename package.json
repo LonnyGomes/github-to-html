@@ -26,6 +26,6 @@
     "@11ty/eleventy": "^0.10.0",
     "@octokit/rest": "^17.0.0",
     "flat-cache": "^2.0.1",
-    "moment": "^2.24.0"
+    "moment": "^2.29.4"
   }
 }
